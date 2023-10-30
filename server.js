@@ -12,9 +12,9 @@ const db = mysql.createConnection(
     {
 
     host: 'localhost',
-    user: 'username',
+    user: 'root',
     password: 'password',
-    database: 'movies_db'
+    database: 'movie_db'
 
 },
 console.log(`Connected to the movies database.`)
@@ -68,24 +68,11 @@ app.delete('/api/movie/:id', (req, res) => {
     });
 });
 
+app.get('*',(req,res)=>{
+    res.json("Try api/movies")
+})
 
+app.listen(PORT, ()=> {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-app.listen(port, ()=> {
-
-    console.log(`Server running at http:localhost:${port}`)
+    console.log(`Server running at http:localhost:${PORT}`)
 })
